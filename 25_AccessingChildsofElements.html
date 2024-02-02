@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessing Children Example</title>
+</head>
+<body>
+
+  <div id="parentElement">
+    <h2>Parent Element</h2>
+    <p class="child">First Child</p>
+    <p class="child">Second Child</p>
+    <p class="child">Third Child</p>
+  </div>
+
+  <script>
+    // Accessing children using the children property
+    var parentElement = document.getElementById("parentElement");
+    var children = parentElement.children;
+
+    console.log("Using children property:");
+    console.log("Children of parentElement:", children);
+
+    // Accessing children using the childNodes property
+    var childNodes = parentElement.childNodes;
+
+    console.log("\nUsing childNodes property:");
+    console.log("Child nodes of parentElement:", childNodes);
+
+    // Filtering out text nodes from childNodes
+    var filteredChildNodes = Array.from(parentElement.childNodes).filter(node => node.nodeType === 1);
+
+    console.log("\nFiltered child nodes (excluding text nodes):", filteredChildNodes);
+  </script>
+</body>
+</html>

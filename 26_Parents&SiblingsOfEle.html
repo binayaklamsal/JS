@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parents and Siblings Example</title>
+</head>
+<body>
+
+  <div id="parentElement">
+    <h2>Parent Element</h2>
+    <p class="child">First Child</p>
+    <p class="child">Second Child</p>
+    <p class="child">Third Child</p>
+  </div>
+
+  <script>
+    // Accessing the parent element
+    var childElement = document.querySelector('.child');
+    var parentElement = childElement.parentNode;
+
+    console.log("Parent Element:");
+    console.log("Parent of childElement:", parentElement);
+
+    // Accessing the next sibling
+    var nextSibling = childElement.nextSibling;
+
+    console.log("\nNext Sibling:");
+    console.log("Next sibling of childElement:", nextSibling);
+
+    // Accessing the previous sibling
+    var previousSibling = childElement.previousSibling;
+
+    console.log("\nPrevious Sibling:");
+    console.log("Previous sibling of childElement:", previousSibling);
+
+    // Accessing all siblings
+    var allSiblings = Array.from(parentElement.children);
+
+    console.log("\nAll Siblings:");
+    console.log("All siblings of childElement:", allSiblings);
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+    <style>
+      body {
+        background-color: bisque;
+      }
+
+      .absolute {
+        border: 1px solid  black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container relative mx-10">
+      <button id="motors" onclick="drop() " class="border border-blue-500 p-2 rounded-full">Cars</button>
+      <div id="dropss" class="absolute bg-blue px-2 rounded-md hidden">
+        <h2><a href="#">Maruti</a></h2>
+        <h2><a href="#">Sujuki</a></h2>
+        <h2><a href="#">Mahindra</a></h2>
+        <h2><a href="#">Indo-farm</a></h2>
+      </div>
+    </div>
+
+    <script>
+      let dropcont = document.getElementById("dropss");
+
+      const drop = () => {
+        dropss.style.display =
+          dropss.style.display === "block" ? "none" : "block";
+      };
+    </script>
+  </body>
+</html>
+
+<!-- function toggleDropdown() {
+    var dropdownContent = document.getElementById("dropdownContent");
+    dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
+  } -->
+
+<!-- let drop_cont = document.getElementById("drop-cont");
+let isDrop = false;
+const drop = () => {
+  drop_cont.style.display = isDrop ? "none" : "block";
+  isDrop = !isDrop; --> 

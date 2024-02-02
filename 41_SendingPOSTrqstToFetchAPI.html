@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API POST Request Example</title>
+</head>
+<body>
+
+<button id="postDataButton">Send POST Request</button>
+<div id="output"></div>
+
+<script>
+  // Function to send POST request using the Fetch API
+  async function postData() {
+    try {
+      const url = 'https://jsonplaceholder.typicode.com/posts';
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title: 'foo',
+          body: 'bar',
+          userId: 1,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      document.getElementById("output").innerHTML = JSON.stringify(data, null, 2);
+    } catch (error) {
+      console.error('Fetch API error:', error.message);
+      document.getElementById("output").innerHTML = 'Error sending POST request.';
+    }
+  }
+
+  // Event listener for the button click
+  document.getElementById("postDataButton").addEventListener("click", postData);
+</script>
+
+</body>
+</html>

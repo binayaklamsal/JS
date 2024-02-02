@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parentElement" class="ancestorClass">
+        <p id="childElement" class="myClass">This is a paragraph.</p>
+    </div>
+    
+    <script>
+        var element = document.getElementById("childElement");
+    
+        // Using matches
+        if (element.matches(".myClass")) {
+            console.log("Element has the class 'myClass'");
+        }
+    
+        // Using closest
+        var closestAncestor = element.closest(".ancestorClass");
+        if (closestAncestor) {
+            console.log("Found closest ancestor with class 'ancestorClass'", closestAncestor);
+        }
+    
+        // Using contains
+        var parentElement = document.getElementById("parentElement");
+        if (parentElement.contains(element)) {
+            console.log("childElement is a descendant of parentElement");
+        }
+    </script>
+</body>
+</html>

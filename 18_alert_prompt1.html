@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default Value in Prompt</title>
+</head>
+<body>
+
+    <script>
+        // Prompt the user to enter some information with a default value
+        const userInput = prompt("Please enter some information:", "Default Value");
+
+        // Display the user input using an alert
+        if (userInput !== null) {
+            alert("You entered: " + userInput);
+        } else {
+            alert("User canceled the prompt.");
+        }
+    </script>
+
+</body>
+</html>

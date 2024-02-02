@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake, Water, Gun Game</title>
+</head>
+<body>
+
+    <script>
+        // Function to generate a random choice for the computer
+        const getComputerChoice = () => {
+            const choices = ['S', 'W', 'G'];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        };
+
+        // Function to play the game
+        const playGame = () => {
+            // Ask the user to enter S, W, or G
+            const userChoice = prompt("Enter 'S' for Snake, 'W' for Water, or 'G' for Gun:");
+
+            // Validate user input
+            if (!userChoice || !['S', 'W', 'G'].includes(userChoice.toUpperCase())) {
+                alert("Invalid input. Please enter 'S', 'W', or 'G'.");
+                return;
+            }
+
+            // Get the computer's choice
+            const computerChoice = getComputerChoice();
+
+            // Display the choices
+            alert(`Your choice: ${userChoice}\nComputer's choice: ${computerChoice}`);
+
+            // Determine the winner
+            if (userChoice.toUpperCase() === computerChoice) {
+                alert("It's a tie!");
+            } else if (
+                (userChoice.toUpperCase() === 'S' && computerChoice === 'W') ||
+                (userChoice.toUpperCase() === 'W' && computerChoice === 'G') ||
+                (userChoice.toUpperCase() === 'G' && computerChoice === 'S')
+            ) {
+                alert("Congratulations! You win!");
+            } else {
+                alert("Sorry, you lose. Better luck next time!");
+            }
+
+            // Ask if the user wants to play again
+            const playAgain = confirm("Do you want to play again?");
+            if (playAgain) {
+                playGame();
+            } else {
+                alert("Thanks for playing!");
+            }
+        };
+
+        // Start the game
+        playGame();
+    </script>
+
+</body>
+</html>

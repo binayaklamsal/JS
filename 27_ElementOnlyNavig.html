@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Element Navigation Example</title>
+</head>
+<body>
+  <div id="myDiv" class="myClass">
+    <p>This is a paragraph.</p>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+
+  <script>
+   
+    var myDiv = document.getElementById("myDiv");
+    var paragraphs = myDiv.getElementsByTagName("p");
+
+    for (var i = 0; i < paragraphs.length; i++) {
+      console.log(paragraphs[i].textContent);
+    }
+  </script>
+</body>
+</html>

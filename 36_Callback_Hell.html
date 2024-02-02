@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Hell Example</title>
+</head>
+<body>
+
+<script>
+  // Function simulating an asynchronous operation
+  function asyncOperation1(callback) {
+    setTimeout(function () {
+      console.log("Async Operation 1 completed");
+      callback("Result from Async Operation 1");
+    }, 1000);
+  }
+
+  function asyncOperation2(result1, callback) {
+    setTimeout(function () {
+      console.log("Async Operation 2 completed with", result1);
+      callback("Result from Async Operation 2");
+    }, 1000);
+  }
+
+  function asyncOperation3(result2, callback) {
+    setTimeout(function () {
+      console.log("Async Operation 3 completed with", result2);
+      callback("Final Result");
+    }, 1000);
+  }
+
+  // Callback Hell / Pyramid of Doom
+  asyncOperation1(function (result1) {
+    console.log("Step 1:", result1);
+
+    asyncOperation2(result1, function (result2) {
+      console.log("Step 2:", result2);
+
+      asyncOperation3(result2, function (finalResult) {
+        console.log("Final Result:", finalResult);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

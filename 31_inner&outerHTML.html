@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="card-list" class="grid-cols-3 gap-2 mx-2 grid my-10"></div>
+
+    <script>
+      const list = [
+        {
+          name: "cat",
+          dec: "dasf dsa fds af dsaf dsaf",
+          price: "Rs 9000",
+          image:
+            "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510_640.jpg",
+        },
+        {
+          name: "dog",
+          dec: "dasf dsa fds af dsaf dsaf",
+          price: "Rs 1400",
+          image:
+            "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510_640.jpg",
+        },
+        {
+          name: "bear",
+          dec: "dasf dsa fds af dsaf dsaf",
+          price: "Rs 9000",
+          image:
+            "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510_640.jpg",
+        },
+        {
+          name: "snake",
+          dec: "dasf dsa fds af dsaf dsaf",
+          price: "Rs 12000",
+          image:
+            "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510_640.jpg",
+        },
+      ];
+
+      const wrapper = document.getElementById("card-list")
+      list.forEach((item) => {
+        wrapper.innerHTML += `<div class="group card">
+        <div class="">
+          <img
+            class=" h-[200px] group-hover:scale-105 w-full duration-300"
+            src=${item?.image}
+            alt=""
+          />
+        </div>
+        <div class="flex justify-between">
+          <h1 class="text-lg text-gray-800 capitalize font-semibold">${item?.name}</h1>
+          <p>${item?.price}</p>
+        </div>
+        <p class="line-clamp-2">Lorem ipsum dolor sit amet.</p>
+      </div>`;
+      });
+    </script>
+  </body>
+</html>

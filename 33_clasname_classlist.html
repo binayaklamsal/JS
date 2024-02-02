@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Classes Example</title>
+    <style>
+        .originalClass {
+            color: blue;
+        }
+
+        .newClass {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div id="exampleElement" class="originalClass">
+    This is an example element.
+</div>
+
+<script>
+    var myElement = document.getElementById("exampleElement");
+
+    // Using className
+    myElement.className = "newClass";
+
+    // Using classList
+    // Add a class
+    myElement.classList.add("additionalClass");
+
+    // Remove a class
+    myElement.classList.remove("originalClass");
+</script>
+
+</body>
+</html>
+
+
+
+<!-- 
+    
+    Using className
+    
+    var myElement = document.getElementById("exampleElement");
+
+// Add a class
+myElement.className = "newClass";
+
+// Remove a class
+myElement.className = ""; // Removes all classes
+
+// Replace classes
+myElement.className = "newClass1 newClass2";
+
+
+
+    Using classList
+
+    var myElement = document.getElementById("exampleElement");
+
+// Add a class
+myElement.classList.add("newClass");
+
+// Remove a class
+myElement.classList.remove("oldClass");
+
+// Toggle a class (add if not present, remove if present)
+myElement.classList.toggle("toggleClass");
+
+// Check if a class exists
+var hasClass = myElement.classList.contains("checkClass");
+
+
+
+
+
+ -->

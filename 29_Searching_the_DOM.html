@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent">
+        <p class="highlight">This is a paragraph.</p>
+        <ul>
+            <li class="highlight">Item 1</li>
+            <li>Item 2</li>
+            <li class="highlight">Item 3</li>
+        </ul>
+    </div>
+    
+    <script>
+        // Using getElementById
+        var parentElement = document.getElementById("parent");
+        console.log(parentElement);
+    
+        // Using getElementsByClassName
+        var highlightedElements = document.getElementsByClassName("highlight");
+        console.log(highlightedElements);
+    
+        // Using getElementsByTagName
+        var listItems = parentElement.getElementsByTagName("li");
+        console.log(listItems);
+    
+        // Using querySelector
+        var firstHighlightedElement = document.querySelector(".highlight");
+        console.log(firstHighlightedElement);
+    
+        // Using querySelectorAll
+        var allHighlightedElements = document.querySelectorAll(".highlight");
+        console.log(allHighlightedElements);
+    </script>
+    
+</body>
+</html>

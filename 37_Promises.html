@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Promises</title>
+</head>
+<body>
+
+<script>
+  // Example 1: Basic Structure of a Promise
+  const myPromise = new Promise((resolve, reject) => {
+    // Simulating an asynchronous operation
+    const success = true;
+
+    if (success) {
+      resolve("Operation completed successfully");
+    } else {
+      reject(new Error("Operation failed"));
+    }
+  });
+
+  // Example 2: Consuming Promises
+  const successfulPromise = new Promise((resolve, reject) => {
+    const result = "Operation completed successfully";
+    resolve(result);
+  });
+
+  const failingPromise = new Promise((resolve, reject) => {
+    const error = new Error("Operation failed");
+    reject(error);
+  });
+
+  successfulPromise
+    .then(result => {
+      console.log("Success:", result);
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
+
+  failingPromise
+    .then(result => {
+      console.log("Success:", result); // This won't be called
+    })
+    .catch(error => {
+      console.error("Error:", error); // This will be called
+    });
+
+  // Example 3: Chaining Promises
+  function asyncOperation1() {
+    return new Promise(resolve => {
+      setTimeout(() => resolve("Result from Async Operation 1"), 1000);
+    });
+  }
+
+  function asyncOperation2(result1) {
+    return new Promise(resolve => {
+      setTimeout(() => resolve("Result from Async Operation 2"), 1000);
+    });
+  }
+
+  function asyncOperation3(result2) {
+    return new Promise(resolve => {
+      setTimeout(() => resolve("Final Result"), 1000);
+    });
+  }
+
+  asyncOperation1()
+    .then(result1 => asyncOperation2(result1))
+    .then(result2 => asyncOperation3(result2))
+    .then(finalResult => {
+      console.log("Chaining Promises - Final Result:", finalResult);
+    })
+    .catch(error => {
+      console.error("Chaining Promises - Error:", error);
+    });
+
+  // Example 4: Promise.all
+  const promisesArray = [
+    asyncOperation1(),
+    asyncOperation2(),
+    asyncOperation3()
+  ];
+
+  Promise.all(promisesArray)
+    .then(results => {
+      console.log("Promise.all - All operations completed:", results);
+    })
+    .catch(error => {
+      console.error("Promise.all - Error:", error);
+    });
+</script>
+
+</body>
+</html>

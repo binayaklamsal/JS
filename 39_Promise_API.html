@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Examples</title>
+</head>
+<body>
+
+<script>
+  // Example 1: Creating a Promise
+  const myPromise = new Promise((resolve, reject) => {
+    // Simulating an asynchronous operation
+    setTimeout(() => {
+      const success = true;
+
+      if (success) {
+        resolve("Data fetched successfully!");
+      } else {
+        reject(new Error("Failed to fetch data"));
+      }
+    }, 2000);
+  });
+
+  // Example 2: Using then() and catch()
+  myPromise
+    .then((result) => {
+      console.log("Success:", result);
+    })
+    .catch((error) => {
+      console.error("Error:", error.message);
+    });
+
+  // Example 3: Using finally()
+  myPromise
+    .finally(() => {
+      console.log("This will be executed regardless of success or failure.");
+    });
+
+  // Example 4: Using Promise.all()
+  const promise1 = Promise.resolve("Promise 1 resolved");
+  const promise2 = new Promise((resolve) => setTimeout(() => resolve("Promise 2 resolved"), 1500));
+  const promise3 = Promise.reject(new Error("Promise 3 rejected"));
+
+  Promise.all([promise1, promise2, promise3])
+    .then((results) => {
+      console.log("Promise.all - All promises resolved:", results);
+    })
+    .catch((error) => {
+      console.error("Promise.all - Error:", error.message);
+    });
+
+  // Example 5: Using Promise.race()
+  const promiseRace1 = new Promise((resolve) => setTimeout(() => resolve("Promise Race 1 resolved"), 1000));
+  const promiseRace2 = new Promise((resolve) => setTimeout(() => resolve("Promise Race 2 resolved"), 500));
+
+  Promise.race([promiseRace1, promiseRace2])
+    .then((firstResult) => {
+      console.log("Promise.race - First promise resolved:", firstResult);
+    })
+    .catch((error) => {
+      console.error("Promise.race - Error:", error.message);
+    });
+</script>
+
+</body>
+</html>

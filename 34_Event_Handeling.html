@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handling Browser Events</title>
+</head>
+<body>
+
+<button id="myButton">Click Me</button>
+<p id="myElement">Hover over me</p>
+<form id="myForm">
+    <input type="text" placeholder="Type something">
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    // Example: Adding a click event listener to a button
+    var myButton = document.getElementById("myButton");
+
+    myButton.addEventListener("click", function() {
+        alert("Button clicked!");
+    });
+
+    // Example: Accessing event properties
+    var myElement = document.getElementById("myElement");
+
+    myElement.addEventListener("mouseover", function(event) {
+        alert("Mouse over " + event.target.tagName);
+    });
+
+    // Example: Preventing default form submission
+    var myForm = document.getElementById("myForm");
+
+    myForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        alert("Form submitted!");
+    });
+
+    // Example: Removing event listener after one click
+    var clickableElement = document.getElementById("clickableElement");
+
+    function clickHandler() {
+        alert("Element clicked!");
+        clickableElement.removeEventListener("click", clickHandler);
+    }
+
+    clickableElement.addEventListener("click", clickHandler);
+</script>
+
+</body>
+</html>

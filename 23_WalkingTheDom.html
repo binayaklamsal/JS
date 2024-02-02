@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Walking</title>
+</head>
+<body>
+
+  <div id="parentElement">
+    <h2>Parent Element</h2>
+    <p class="child">First Child</p>
+    <p class="child">Second Child</p>
+    <p class="child">Third Child</p>
+  </div>
+
+  <script>
+    // 1. Traversing Nodes
+    var parent = document.getElementById("parentElement");
+    var firstChild = parent.firstChild;
+    var nextSibling = firstChild.nextSibling;
+
+    console.log("1. Traversing Nodes:");
+    console.log("Parent Node:", parent);
+    console.log("First Child:", firstChild);
+    console.log("Next Sibling of First Child:", nextSibling);
+
+    // 2. Selecting Elements
+    var elementById = document.getElementById("parentElement");
+    var elementsByClass = document.getElementsByClassName("child");
+    var elementsByTag = document.getElementsByTagName("p");
+    var elementByQuery = document.querySelector("#parentElement");
+
+    console.log("\n2. Selecting Elements:");
+    console.log("Element by ID:", elementById);
+    console.log("Elements by Class:", elementsByClass);
+    console.log("Elements by TagName:", elementsByTag);
+    console.log("Element by QuerySelector:", elementByQuery);
+
+    // 3. Iterating Through NodeList
+    var elements = document.getElementsByTagName("p");
+
+    console.log("\n3. Iterating Through NodeList:");
+    for (var i = 0; i < elements.length; i++) {
+      console.log("Element " + (i + 1) + ":", elements[i]);
+    }
+
+    // 4. Tree Traversal
+    var children = parent.childNodes;
+
+    console.log("\n4. Tree Traversal:");
+    console.log("Child Nodes of Parent Element:", children);
+
+    // 5. Recursive Traversal
+    function traverse(node) {
+      console.log("Recursive Traversal:", node);
+
+      for (var i = 0; i < node.childNodes.length; i++) {
+        traverse(node.childNodes[i]);
+      }
+    }
+
+    traverse(document.body);
+
+    // 6. Node Types
+    var firstParagraph = document.getElementsByTagName("p")[0];
+
+    console.log("\n6. Node Types:");
+    console.log("Node Type of First Paragraph:", firstParagraph.nodeType);
+    </script>
+  </body>
+  </html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        display: flex;
+        gap: 10px;
+      }
+      .class {
+        height: 200px;
+        width: 200px;
+        border: 2px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="ram">
+      <div class="class" id="ann"></div>
+      <div class="class" id="that"></div>
+      <div class="class" id="those"></div>
+    </div>
+
+    <script>
+      const ram1 = document.getElementsByClassName("class");
+        for(let i = 0; i<ram1.length ; i++){
+           ram1[i].style.backgroundColor = "yellow";
+        }
+    </script>
+  </body>
+</html>
